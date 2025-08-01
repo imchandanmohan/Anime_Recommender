@@ -1,0 +1,54 @@
+2025-07-17 18:22:46,993 - INFO - Starting to load data from: data/anime_raw.csv
+2025-07-17 18:22:46,993 - ERROR - An error occurred during data loading or processing.
+Traceback (most recent call last):
+  File "/Users/chandan/Desktop/Anime Recommender/src/data_loader.py", line 26, in load_and_process
+    df: pd.DataFrame = pd.read_csv(
+                       ~~~~~~~~~~~^
+        self.original_csv,
+        ^^^^^^^^^^^^^^^^^^
+        encoding='utf-8',
+        ^^^^^^^^^^^^^^^^^
+        on_bad_lines='skip'
+        ^^^^^^^^^^^^^^^^^^^
+    ).dropna()
+    ^
+  File "/Users/chandan/Desktop/Anime Recommender/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1026, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/Users/chandan/Desktop/Anime Recommender/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 620, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/Users/chandan/Desktop/Anime Recommender/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1620, in __init__
+    self._engine = self._make_engine(f, self.engine)
+                   ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/Users/chandan/Desktop/Anime Recommender/venv/lib/python3.13/site-packages/pandas/io/parsers/readers.py", line 1880, in _make_engine
+    self.handles = get_handle(
+                   ~~~~~~~~~~^
+        f,
+        ^^
+    ...<6 lines>...
+        storage_options=self.options.get("storage_options", None),
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    )
+    ^
+  File "/Users/chandan/Desktop/Anime Recommender/venv/lib/python3.13/site-packages/pandas/io/common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'data/anime_raw.csv'
+2025-07-17 18:22:46,995 - ERROR - CustomException caught: Failed to load and process anime data | Error: [Errno 2] No such file or directory: 'data/anime_raw.csv' | File: /Users/chandan/Desktop/Anime Recommender/src/data_loader.py | Line: 26
+2025-07-17 18:24:12,632 - INFO - Starting to load data from: data/anime_with_synopsis.csv
+2025-07-17 18:24:12,660 - INFO - Successfully loaded and cleaned CSV data.
+2025-07-17 18:24:12,660 - INFO - All required columns are present.
+2025-07-17 18:24:12,850 - INFO - Processed data saved to: data/anime_with_synopsis_processed.csv
+2025-07-17 18:24:12,850 - INFO - Data successfully processed and saved to: data/anime_with_synopsis_processed.csv
+2025-07-17 19:27:50,815 - INFO - Use pytorch device_name: mps
+2025-07-17 19:27:50,815 - INFO - Load pretrained SentenceTransformer: all-MiniLM-L6-v2
+2025-07-17 19:28:01,356 - INFO - VectorStoreBuilder initialized with CSV: data/anime_with_synopsis_processed.csv and persist_dir: chroma_db
+2025-07-17 19:28:01,356 - INFO - Loading documents from CSV...
+2025-07-17 19:28:01,378 - INFO - Loaded 269 documents from CSV.
+2025-07-17 19:28:01,379 - INFO - Splitting documents into chunks...
+2025-07-17 19:28:01,380 - INFO - Split into 269 chunks.
+2025-07-17 19:28:01,381 - INFO - Creating and saving Chroma vector store...
+2025-07-17 19:28:03,815 - INFO - Anonymized telemetry enabled. See                     https://docs.trychroma.com/telemetry for more information.
+2025-07-17 19:28:09,785 - INFO - Vector store saved to directory: chroma_db
+2025-07-17 19:28:09,786 - INFO - Attempting to load vector store from: chroma_db
+2025-07-17 19:28:09,793 - INFO - Vector store loaded successfully.
+2025-07-17 19:28:09,793 - INFO - Loading documents directly from: data/anime_with_synopsis_processed.csv
+2025-07-17 19:28:09,795 - INFO - Loaded 269 raw documents from CSV.
