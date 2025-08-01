@@ -8,7 +8,7 @@ venv/
 ENV/
 env/
 .venv/
-.env/
+.env
 
 # VS Code settings
 .vscode/
@@ -21,3 +21,7 @@ env/
 
 # Log files
 *.log
+
+# EGG F
+*.egg-info/
+

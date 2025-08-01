@@ -1,0 +1,9 @@
+repos:
+  - repo: https://github.com/pre-commit/mirrors-pylint
+    rev: v3.0.0a5  # use a valid pylint tag here, check on GitHub
+    hooks:
+      - id: pylint
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
